@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { PinFormComponent } from './pin-form/pin-form.component';
-import { CustomerListComponent } from './customer-list/customer-list.component';
 import { PinListComponent } from './pin-list/pin-list.component';
 
 @NgModule({
@@ -15,7 +14,6 @@ import { PinListComponent } from './pin-list/pin-list.component';
     AppComponent,
     CustomerFormComponent,
     PinFormComponent,
-    CustomerListComponent,
     PinListComponent
   ],
   imports: [
