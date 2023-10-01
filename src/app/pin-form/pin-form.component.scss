@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-constainer {
+    width: max-content;
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form-group {
+    // margin-top: 50px;
+    // margin-right: 12px;
+    display: flex;
+}
+
+.pin-btn {
+    margin-left: 150px;
+}

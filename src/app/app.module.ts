@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { PinFormComponent } from './pin-form/pin-form.component';
 import { PinListComponent } from './pin-list/pin-list.component';
+import { CustomerService } from './customer.service';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import { PinListComponent } from './pin-list/pin-list.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgxSelectModule
+    NgxSelectModule,
+    FileUploadModule
   ],
-  providers: [],
+  providers: [CustomerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

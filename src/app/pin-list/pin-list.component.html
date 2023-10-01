@@ -1,16 +1,15 @@
 <div class="container mt-4">
     <div class="row">
-      <div class="col-6">
-        <h2>List of Pins</h2>
+      <div class="header-container">
+        <div class="col-6">
+          <h2>List of Pins</h2>
+        </div>
+        <div class="col-3 button-container">
+          <button class="btn btn-primary float-right" (click)="navigateToAddCustomer()">+ Add Customer</button>
+          <button class="btn btn-success float-right" (click)="navigateToAddPin()">+ Add Pin</button>
+        </div>
       </div>
-      <div class="col-3">
-        <button class="btn btn-primary float-right" (click)="navigateToAddCustomer()">+ Add Customer</button>
-      </div>
-      <div class="col-3">
-        <button class="btn btn-success float-right" (click)="navigateToAddPin()">+ Add Pin</button>
-      </div>
-    </div>
-    
+     
     <table class="table mt-4">
       <thead>
         <tr>
@@ -21,7 +20,6 @@
         </tr>
       </thead>
       <tbody>
-        <!-- Loop through your pins data and display rows here -->
         <tr *ngFor="let pin of pins">
           <td>{{ pin.title }}</td>
           <td><img src="{{ pin.image }}" alt="{{ pin.title }}" width="100"></td>
@@ -32,7 +30,6 @@
           </td>
           <td>{{ pin.privacy }}</td>
         </tr>
-        <!-- End of loop -->
       </tbody>
     </table>
   </div>
