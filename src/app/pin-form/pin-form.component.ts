@@ -10,37 +10,25 @@ import { PinService } from '../pin.service';
 export class PinFormComponent implements OnInit {
 
   pin: any = {};
-  
-  // pin = {
-  //   title: '',
-  //   collaborator: '',
-  //   privacy: 'private'
-  // };
-customers = ['Customer1', 'Customer2']
+  customers: any = [];
 
-constructor(private router: Router, private pinService: PinService) {}
+  constructor(private router: Router, private pinService: PinService) { }
 
-ngOnInit(): void {
- 
-}
-
-storgeDataIntoLocal() {
-  // var a = [];
-  // a.push(JSON.parse(localStorage.getItem('session')));
-  // localStorage.setItem('session', JSON.stringify(a));
-}
+  ngOnInit(): void {
+    this.customers = JSON.parse(localStorage.getItem('customer') || '[]');
+  }
 
   createPin() {
     this.router.navigate([''], {
-    queryParams: {
-      title: this.pin.title,
-      collaborator: this.pin.collaborator,
-      privacy: this.pin.privacy
-    }
-  });
-  // console.log('quary paramssssssss');
-  this.pinService.addPin(this.pin);
-  this.pin = {}; // Reset the form
+      queryParams: {
+        title: this.pin.title,
+        collaborator: this.pin.collaborator,
+        privacy: this.pin.privacy
+      }
+    });
+    // console.log('quary paramssssssss');
+    this.pinService.addPin(this.pin);
+    this.pin = {}; // Reset the form
   }
 
   onFileSelected(event: any) {

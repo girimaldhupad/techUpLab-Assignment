@@ -8,20 +8,28 @@ import { CustomerService } from '../customer.service';
   styleUrls: ['./customer-form.component.scss']
 })
 export class CustomerFormComponent implements OnInit {
-  customer: any = {}; // Initialize your customer object
-  regions: any[] = []; // Initialize regions array
-  countries: any[] = []; // Initialize countries array
+  customer: any = {};
+  regions: any[] = [];
+  countries: any[] = [];
+  customerTitle: string = '';
 
   constructor(private customerService: CustomerService) { }
 
   ngOnInit(): void {
     this.customerService.getRegions().subscribe(data => {
-      this.regions = data.data; 
+      this.regions = Object.values(data.data);
     });
   }
 
-  
+
   createCustomer() {
+    let existingData: string[] = JSON.parse(localStorage.getItem('customer') || '[]');
+    if (this.customerTitle.trim() !== '') {
+      existingData.push(this.customerTitle);
+
+      localStorage.setItem('customer', JSON.stringify(existingData));
+      console.log('Customer title added to localStorage:', this.customerTitle);
+    }
   }
 
   onRegionSelected() {

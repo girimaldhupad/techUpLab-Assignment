@@ -1,32 +1,35 @@
 <div class="container mt-4">
-    <h2>Create Customer</h2>
-    <form (ngSubmit)="createCustomer()" class="form-container">
-      <!-- Customer Title Input -->
-      <div class="form-group">
-        <label for="title">Title*</label>
-        <input type="text" class="form-control" id="title" placeholder="Enter Title" [(ngModel)]="customer.title" name="title" required>
-      </div>
-      
-      <!-- Customer Email Input -->
-      <div class="form-group">
-        <label for="email">Email*</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter Email" [(ngModel)]="customer.email" name="email" required>
-      </div>
-      
-      <!-- Customer Region Dropdown -->
-      <div class="form-group">
-        <label for="region">Region*</label>
-        <ngx-select [(ngModel)]="customer.region" name="region" [items]="regions" class="form-control"></ngx-select>
-      </div>
-      
-      <!-- Customer Country Dropdown -->
-      <div class="form-group">
-        <label for="country">Country*</label>
-        <ngx-select [(ngModel)]="customer.country" name="country" [items]="countries" class="form-control"></ngx-select>
-      </div>
-      
-      <!-- Create Customer Button -->
-      <button type="submit" class="btn btn-primary customer-btn">Create Customer</button>
-    </form>
-  </div>
-  
+  <h2>Create Customer</h2>
+  <form (ngSubmit)="createCustomer()" class="form-container">
+    <!-- Customer Title Input -->
+    <div class="form-group">
+      <label for="title">Title*</label>
+      <input type="text" class="form-control" id="title" placeholder="Enter Title" [(ngModel)]="customerTitle"
+        name="title" required>
+    </div>
+
+    <!-- Customer Email Input -->
+    <div class="form-group">
+      <label for="email">Email*</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter Email" [(ngModel)]="customer.email"
+        name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="region">Region*</label>
+      <select class="form-control" id="region" name="region" [(ngModel)]="customer.region" required>
+        <option value="" disabled>Select Region</option>
+        <option *ngFor="let region of regions; let key = index" [value]="key">{{ region.region }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="country">Country*</label>
+      <select class="form-control" id="country" name="country" [(ngModel)]="customer.country" required>
+        <option value="" disabled>Select Country</option>
+        <option *ngFor="let country of countries; let key = index" [value]="key">{{ country.country }}</option>
+      </select>
+    </div>
+
+    <!-- Create Customer Button -->
+    <button type="submit" class="btn btn-primary customer-btn">Create Customer</button>
+  </form>
+</div>

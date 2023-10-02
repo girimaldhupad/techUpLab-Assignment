@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PinService } from '../pin.service';
 
@@ -9,20 +9,6 @@ import { PinService } from '../pin.service';
 })
 export class PinListComponent implements OnInit {
   pins: any[] = [];
-  // pins: any[] = [
-  //   {
-  //     title: 'Pin 1',
-  //     image: 'https://example.com/pin1.jpg',
-  //     collaborators: ['Customer 1', 'Customer 2'],
-  //     privacy: 'Private'
-  //   },
-  //   {
-  //     title: 'Pin 2',
-  //     image: 'https://example.com/pin2.jpg',
-  //     collaborators: ['Customer 3', 'Customer 4'],
-  //     privacy: 'Public'
-  //   },
-  // ];
 
   constructor(private router: Router, private pinService: PinService) { }
 
@@ -32,17 +18,14 @@ export class PinListComponent implements OnInit {
     });
   }
 
-  // Function to navigate to the "+ Add Customer" page
   navigateToAddCustomer() {
-   this.router.navigate(['/addCustomer']);
+    this.router.navigate(['/addCustomer']);
   }
 
-  // Function to navigate to the "+ Add Pin" page
   navigateToAddPin() {
     this.router.navigate(['/addPin']);
   }
 
-  //if user wants to clear/remove an added PIN
   clearPins() {
     this.pinService.clearPins();
   }
