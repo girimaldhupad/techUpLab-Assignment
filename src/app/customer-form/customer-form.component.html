@@ -12,8 +12,9 @@
     <div class="form-group">
       <label for="email">Email*</label>
       <input type="email" class="form-control" id="email" placeholder="Enter Email" [(ngModel)]="customer.email"
-        name="email" required>
+        name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">
     </div>
+
     <div class="form-group">
       <label for="region">Region*</label>
       <select class="form-control" id="region" name="region" [(ngModel)]="customer.region" required>

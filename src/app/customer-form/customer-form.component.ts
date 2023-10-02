@@ -21,7 +21,6 @@ export class CustomerFormComponent implements OnInit {
     });
   }
 
-
   createCustomer() {
     let existingData: string[] = JSON.parse(localStorage.getItem('customer') || '[]');
     if (this.customerTitle.trim() !== '') {
@@ -40,4 +39,10 @@ export class CustomerFormComponent implements OnInit {
       });
     }
   }
+
+  isValidEmail(email: string): boolean {
+    const emailPattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}/;
+    return emailPattern.test(email);
+  }
+  
 }
