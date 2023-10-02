@@ -1,23 +1,36 @@
-.container {
+.form-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-.form-constainer {
-    width: max-content;
-    height: 330px;
+    gap: 1rem;
+    margin: auto;
+    width: 50%;
+  }
+  
+  .form-row {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .form-group {
+    flex: 1;
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  label {
+    text-align: end;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    margin-right: 1rem;
+  }
+  
+  .form-check-input {
+    margin-right: 0.5rem;
+  }
 
-.form-group {
-    // margin-top: 50px;
-    // margin-right: 12px;
-    display: flex;
-}
-
-.pin-btn {
-    margin-left: 150px;
-}
+  .pin-btn {
+    margin: auto;
+  }
+  

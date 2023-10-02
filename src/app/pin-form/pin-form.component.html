@@ -1,39 +1,37 @@
 <div class="container">
     <h2>+ Add Pin</h2>
-    <form (submit)="createPin()">
-      <div  class="form-constainer">
-        <div class="form-group">
-          <label for="title">Title*:</label>
-          <input type="text" class="form-control" id="title" placeholder="Enter Title" [(ngModel)]="pin.title" name="title" required>
-        </div>
-  
-        <div class="form-group">
-          <label for="file">Select Image*:</label>
-          <input type="file" class="form-control-file" id="file" accept="image/*" (change)="onFileSelected($event)">
-        </div>
-    
-        <div class="form-group">
-          <label for="collaborator">Select Collaborator*:</label>
-          <select class="form-control" id="collaborator" [(ngModel)]="pin.collaborator" name="collaborator">
-            <option value="">Choose Collaborator</option>
-            <option value="customer" *ngFor="let customer of customers">{{customer}}</option>
-          </select>
-        </div>
-    
-        <div class="form-group">
-          <label>Privacy*:</label><br>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" id="privacyPrivate" value="private" [(ngModel)]="pin.privacy" name="privacy" checked>
-            <label class="form-check-label" for="privacyPrivate">Private</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" id="privacyPublic" value="public" [(ngModel)]="pin.privacy" name="privacy">
-            <label class="form-check-label" for="privacyPublic">Public</label>
-          </div>
-        </div>
-    
-        <button type="submit" class="btn btn-primary pin-btn">Create Pin</button>
-      </div>
-    </form>
+<form (submit)="createPin()" class="form-container">
+  <div class="form-group">
+    <label for="title">Title*:</label>
+    <input type="text" class="form-control" id="title" placeholder="Enter Title" [(ngModel)]="pin.title" name="title" required>
+  </div>
+
+  <div class="form-group">
+    <label for="file">Select Image*:</label>
+    <input type="file" class="form-control-file" id="file" accept="image/*" (change)="onFileSelected($event)">
+  </div>
+
+  <div class="form-group">
+    <label for="collaborator">Select Collaborator*:</label>
+    <select class="form-control" id="collaborator" [(ngModel)]="pin.collaborator" name="collaborator">
+      <option value="">Choose Collaborator</option>
+      <option value="customer" *ngFor="let customer of customers">{{customer}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Privacy*:</label><br>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" id="privacyPrivate" value="private" [(ngModel)]="pin.privacy" name="privacy" checked>
+      <label class="form-check-label" for="privacyPrivate">Private</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" id="privacyPublic" value="public" [(ngModel)]="pin.privacy" name="privacy">
+      <label class="form-check-label" for="privacyPublic">Public</label>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary pin-btn">Create Pin</button>
+</form>
   </div>
   

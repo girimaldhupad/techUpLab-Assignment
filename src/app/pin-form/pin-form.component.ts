@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PinService } from '../pin.service';
 
 @Component({
   selector: 'app-pin-form',
@@ -8,18 +9,16 @@ import { Router } from '@angular/router';
 })
 export class PinFormComponent implements OnInit {
 
-  URL = 'path_to_api';
-
-  // public uploader:FileUploader = new FileUploader({url: URL});
+  pin: any = {};
   
-  pin = {
-    title: '',
-    collaborator: '',
-    privacy: 'private'
-  };
+  // pin = {
+  //   title: '',
+  //   collaborator: '',
+  //   privacy: 'private'
+  // };
 customers = ['Customer1', 'Customer2']
 
-constructor(private router: Router) {}
+constructor(private router: Router, private pinService: PinService) {}
 
 ngOnInit(): void {
  
@@ -32,7 +31,6 @@ storgeDataIntoLocal() {
 }
 
   createPin() {
-    console.log('Creating Pin:', this.pin);
     this.router.navigate([''], {
     queryParams: {
       title: this.pin.title,
@@ -40,7 +38,9 @@ storgeDataIntoLocal() {
       privacy: this.pin.privacy
     }
   });
-  console.log('quary paramssssssss');
+  // console.log('quary paramssssssss');
+  this.pinService.addPin(this.pin);
+  this.pin = {}; // Reset the form
   }
 
   onFileSelected(event: any) {
