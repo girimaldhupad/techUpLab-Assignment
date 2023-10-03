@@ -1,5 +1,6 @@
 // customer-form.component.ts
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CustomerService } from '../customer.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class CustomerFormComponent implements OnInit {
   countries: any[] = [];
   customerTitle: string = '';
 
-  constructor(private customerService: CustomerService) { }
+  constructor(private router: Router,private customerService: CustomerService) { }
 
   ngOnInit(): void {
     this.customerService.getRegions().subscribe(data => {
@@ -27,8 +28,8 @@ export class CustomerFormComponent implements OnInit {
       existingData.push(this.customerTitle);
 
       localStorage.setItem('customer', JSON.stringify(existingData));
-      console.log('Customer title added to localStorage:', this.customerTitle);
     }
+    this.router.navigate(['']);
   }
 
   onRegionSelected() {
@@ -38,11 +39,6 @@ export class CustomerFormComponent implements OnInit {
         this.countries = data.data;
       });
     }
-  }
-
-  isValidEmail(email: string): boolean {
-    const emailPattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}/;
-    return emailPattern.test(email);
   }
   
 }

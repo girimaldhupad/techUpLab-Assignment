@@ -26,7 +26,6 @@ export class PinFormComponent implements OnInit {
         privacy: this.pin.privacy
       }
     });
-    // console.log('quary paramssssssss');
     this.pinService.addPin(this.pin);
     this.pin = {}; // Reset the form
   }

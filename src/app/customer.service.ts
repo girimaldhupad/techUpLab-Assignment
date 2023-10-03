@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,12 +11,14 @@ export class CustomerService {
   constructor(private http: HttpClient) { }
 
   getRegions(): Observable<any> {
-    // return this.http.get(`${this.apiUrl}/regions`);
-    return this.http.get(`${this.apiUrl}`);
+    const headers = new HttpHeaders();
+    headers.append('Access-Control-Allow-Origin', '*');
+    return this.http.get(`${this.apiUrl}`, {headers: headers});
   }
 
   getCountriesByRegion(region: string): Observable<any> {
-    // return this.http.get(`${this.apiUrl}/countries?region=${region}`);
-    return this.http.get(`${this.apiUrl}?region=${region}`);
+    const headers = new HttpHeaders();
+    headers.append('Access-Control-Allow-Origin', '*');
+    return this.http.get(`${this.apiUrl}?region=${region}`, {headers: headers});
   }
 }
