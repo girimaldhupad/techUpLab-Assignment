@@ -12,13 +12,15 @@ export class CustomerService {
 
   getRegions(): Observable<any> {
     const headers = new HttpHeaders();
-    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
+    console.log(headers,'header isss');
     return this.http.get(`${this.apiUrl}`, {headers: headers});
+
   }
 
   getCountriesByRegion(region: string): Observable<any> {
     const headers = new HttpHeaders();
-    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
     return this.http.get(`${this.apiUrl}?region=${region}`, {headers: headers});
   }
 }

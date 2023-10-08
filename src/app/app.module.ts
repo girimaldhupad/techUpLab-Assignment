@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSelectModule } from 'ngx-select-ex';
 import { HttpClientModule } from '@angular/common/http'
 
@@ -24,6 +24,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     NgxSelectModule,
     FileUploadModule,
     HttpClientModule

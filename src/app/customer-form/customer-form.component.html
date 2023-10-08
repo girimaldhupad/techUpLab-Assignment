@@ -1,14 +1,12 @@
 <div class="container mt-4">
   <h2>Create Customer</h2>
   <form (ngSubmit)="createCustomer()" class="form-container">
-    <!-- Customer Title Input -->
     <div class="form-group">
       <label for="title">Title*</label>
       <input type="text" class="form-control" id="title" placeholder="Enter Title" [(ngModel)]="customerTitle"
         name="title" required>
     </div>
 
-    <!-- Customer Email Input -->
     <div class="form-group">
       <label for="email">Email*</label>
       <input type="email" class="form-control" id="email" placeholder="Enter Email" [(ngModel)]="customer.email"
@@ -30,7 +28,6 @@
       </select>
     </div>
 
-    <!-- Create Customer Button -->
     <button type="submit" class="btn btn-primary customer-btn">Create Customer</button>
   </form>
 </div>
