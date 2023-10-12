@@ -15,16 +15,16 @@
 
     <div class="form-group">
       <label for="region">Region*</label>
-      <select class="form-control" id="region" name="region" [(ngModel)]="customer.region" required>
+      <select class="form-control" id="region" name="region" [(ngModel)]="customer.region" (change)="onRegionSelected()" required>
         <option value="" disabled>Select Region</option>
-        <option *ngFor="let region of regions; let key = index" [value]="key">{{ region.region }}</option>
+        <option *ngFor="let region of regions;" [value]="region">{{ region }}</option>
       </select>
     </div>
     <div class="form-group">
       <label for="country">Country*</label>
       <select class="form-control" id="country" name="country" [(ngModel)]="customer.country" required>
         <option value="" disabled>Select Country</option>
-        <option *ngFor="let country of countries; let key = index" [value]="key">{{ country.country }}</option>
+        <option *ngFor="let country of countries;" [value]="country">{{ country }}</option>
       </select>
     </div>
 
