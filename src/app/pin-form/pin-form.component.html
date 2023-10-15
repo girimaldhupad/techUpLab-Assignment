@@ -9,8 +9,15 @@
 
     <div class="form-group">
       <label for="file">Select Image*:</label>
-      <input type="file" class="form-control-file" id="file" accept="image/*" (change)="onFileSelected($event)">
+      <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
     </div>
+    <ul *ngFor="let item of uploader.queue">
+      <li class="image-content">
+        {{ item.file.name }}
+        <button type="button" (click)="item.upload()" class="btn btn-primary btn-xs">Upload</button>
+        <button type="button" (click)="item.upload()" class="btn btn-danger btn-xs">Remove</button>
+      </li>
+    </ul>
 
     <div class="form-group">
       <label for="collaborator">Select Collaborator*:</label>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PinService } from '../pin.service';
+import { FileUploader } from 'ng2-file-upload';
 
 @Component({
   selector: 'app-pin-form',
@@ -11,11 +12,21 @@ export class PinFormComponent implements OnInit {
 
   pin: any = {};
   customers: any = [];
+  imageUrlAPI = 'https://github.com/valor-software/ng2-file-upload';
+  
+  public uploader: FileUploader = new FileUploader({ url: this.imageUrlAPI, itemAlias:'photo' });
 
-  constructor(private router: Router, private pinService: PinService) { }
+  constructor(private router: Router, private pinService: PinService) {}
 
   ngOnInit(): void {
     this.customers = JSON.parse(localStorage.getItem('customer') || '[]');
+
+    this.uploader.onAfterAddingFile = (file) => {
+      file.withCredentials = false;
+    };
+    this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
+      console.log('File uploaded:', status);
+    };
   }
 
   createPin() {
@@ -27,7 +38,7 @@ export class PinFormComponent implements OnInit {
       }
     });
     this.pinService.addPin(this.pin);
-    this.pin = {}; // Reset the form
+    this.pin = {};
   }
 
   onFileSelected(event: any) {
